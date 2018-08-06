@@ -1,21 +1,25 @@
-// Code your solution in this file.
-function lowerCaseDrivers(arr){
-  return arr.map(function(driver){
-   return driver.toLowerCase();
- });
+function lowerCaseDrivers(arr) {
+  const newArr = arr.map(function(name) {
+    return name.toLowerCase();
+  });
+  return newArr;
 }
 
-function nameToAttributes (list) {
-  return list.map(function (driver) {
-    const driverFirst = driver.split(' ')[0];
-    const driverLast = driver.split(' ')[1];
-
-    return { firstName: driverFirst, lastName: driverLast };
+function nameToAttributes(drivers) {
+  const newArr = drivers.map(function(fullName) {
+    let fullNameArray = fullName.split(" ");
+    return Object.assign(
+      {},
+      { firstName: fullNameArray[0] },
+      { lastName: fullNameArray[1] }
+    );
   });
+  return newArr;
 }
 
 function attributesToPhrase(drivers) {
-  return drivers.map(function (driver) {
-    return `${driver.name} is from ${driver.hometown}`;
+  const newObj = drivers.map(function(individualObj) {
+    return `${individualObj.name} is from ${individualObj.hometown}`;
   });
+  return newObj;
 }
